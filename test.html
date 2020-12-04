@@ -8,11 +8,33 @@
 </body> 
 
 <ul class="list-group">
+    <li id="IP" class="list-group-item"></li>
     <li id="useragent" class="list-group-item"></li>
     <li  id="language" class="list-group-item"></li>
     <li id="platform" class="list-group-item"></li>
     <li id="screen" class="list-group-item"></li>
+    <li id="CPU" class="list-group-item"></li>
+    <li id="GPU" class="list-group-item"></li>
     <li class="list-group-item"></li>
   </ul>
+
+
+
 <script src=info.js></script>
+<script type="application/javascript">
+    function getIP(json) {
+      document.getElementById('IP').innerHTML = 'ip address : '+json.ip; 
+      return json.ip
+    }
+  </script>
+  
+  <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+
+
+
+
+
+
+
+
 </html> 
