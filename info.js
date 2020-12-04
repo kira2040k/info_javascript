@@ -6,16 +6,27 @@ document.getElementById('screen').innerHTML = 'your screen : ' + screen.width + 
 console.log(navigator.hardwareConcurrency);
 console.log(navigator.product);
 console.log(navigator.deviceMemory);
-let batteryPromise = navigator.getBattery();
-batteryPromise.then(batteryCallback);
+function detectGPU(){
+    //GPU detection
+    var canvas = document.createElement('canvas');
+    var gl;
+    var debugInfo;
+    var vendor;
+    var renderer;
+    
+    try {
+      gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    } catch (e) {
+    }
+    
+    if (gl) {
+      debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+      renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      
+    }
+    console.log(renderer);
 
-function batteryCallback(batteryObject) {
-   printBatteryStatus(batteryObject);
+
 }
-function printBatteryStatus(batteryObject) {
-    console.log("IsCharging", batteryObject.charging);
-    console.log("Percentage", batteryObject.level);
-   
-    console.log("charging Time", batteryObject.chargingTime);
-    console.log("DisCharging Time", batteryObject.dischargingTime);
-}
+detectGPU();
