@@ -3,9 +3,7 @@ document.getElementById('useragent').innerHTML = 'user-agent :'+navigator.userAg
 document.getElementById('platform').innerHTML = 'platform :'+navigator.platform;
 document.getElementById('language').innerHTML = 'language :'+navigator.language;
 document.getElementById('screen').innerHTML = 'your screen : ' + screen.width + 'x' + screen.height; 
-console.log(navigator.hardwareConcurrency);
-console.log(navigator.product);
-console.log(navigator.deviceMemory);
+document.getElementById('CPU').innerHTML = 'CPU threads : '+navigator.hardwareConcurrency
 function detectGPU(){
     //GPU detection
     var canvas = document.createElement('canvas');
@@ -25,8 +23,16 @@ function detectGPU(){
       renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
       
     }
-    console.log(renderer);
+    document.getElementById('GPU').innerHTML = 'GPU info : '+renderer;
 
 
 }
 detectGPU();
+
+
+
+
+
+
+
+
