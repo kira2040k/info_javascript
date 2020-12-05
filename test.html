@@ -1,25 +1,26 @@
 <html>
 <head>
     <link rel="stylesheet" href="bootstrap.css">
-
 </head>
-<body  bgcolor="gray">
-    
+<body  bgcolor="gray">    
 </body> 
-
-<ul class="list-group">
-    <li id="IP" class="list-group-item"></li>
-    <li id="useragent" class="list-group-item"></li>
-    <li  id="language" class="list-group-item"></li>
-    <li id="platform" class="list-group-item"></li>
-    <li id="screen" class="list-group-item"></li>
-    <li id="CPU" class="list-group-item"></li>
-    <li id="GPU" class="list-group-item"></li>
-    <li class="list-group-item"></li>
-  </ul>
-
-
-
+  <ul class="list-group">
+      <li id="IP" class="list-group-item"></li>
+      <li id="useragent" class="list-group-item"></li>
+      <li  id="language" class="list-group-item"></li>
+      <li id="platform" class="list-group-item"></li>
+      <li id="screen" class="list-group-item"></li>
+      <li id="color" class="list-group-item"></li>
+      <li id="CPU" class="list-group-item"></li>
+      <li id="GPU" class="list-group-item"></li>
+      <li id="ischarge" class="list-group-item"></li>
+      <li id="levelchange" class="list-group-item"></li>
+      <li id="level" class="list-group-item"></li>
+      <li id="charging" class="list-group-item"></li>
+      <li id="discharging" class="list-group-item"></li>
+      <li id="ismobile" class="list-group-item"></li>
+      <li class="list-group-item"></li>
+    </ul>
 <script src=info.js></script>
 <script type="application/javascript">
     function getIP(json) {
@@ -27,14 +28,5 @@
       return json.ip
     }
   </script>
-  
   <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
-
-
-
-
-
-
-
-
 </html> 
