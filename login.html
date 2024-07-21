@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="authenticate()">Login</button>
+    <p class="error-message" id="error-message">Invalid username or password.</p>
+</div>
+
+<script>
+    function authenticate() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+        
+        function xorEncryptDecrypt(input, key) {
+        const inputBytes = new TextEncoder().encode(input);
+        const keyBytes = new TextEncoder().encode(key);
+        const outputBytes = inputBytes.map((byte, index) => byte ^ keyBytes[index % keyBytes.length]);
+        return new TextDecoder().decode(outputBytes);
+    }
+
+
+        
+
+        if (btoa(xorEncryptDecrypt(username,"kira")) === "HQAEGA==" && btoa(xorEncryptDecrypt(password,"kira")) === "PQAEGDQZExIYHh0TD1hAUg==") {
+            alert('Login successful!');
+            // Redirect or perform other actions on successful login
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
